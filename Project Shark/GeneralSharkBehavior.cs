@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using Boo.Lang;
+using Rewired;
+using Steamworks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +16,9 @@ using UnityEngine.SceneManagement;
 public class GeneralSharkBehavior : AbstractBehavior
 {
     #region Inspector
+
+    public int playerID;
+
     [Header("Animation Holders")]
     [SerializeField]
     GameObject oil;
@@ -34,7 +39,7 @@ public class GeneralSharkBehavior : AbstractBehavior
     [SerializeField]
     float poisonTime;
     [SerializeField]
-    float stunTime, respawnTime;
+    float stunTime, respawnTime, perfectTime = 3;
 
     [Header("Bools")]
     [ReadOnly] public bool isDeadSharky = false;
@@ -50,6 +55,8 @@ public class GeneralSharkBehavior : AbstractBehavior
     [SerializeField] [ReadOnly] float normSpeed, dashSpeed, slowSpeedPercent, tempSpeed, stopSpeed;
     #endregion
 
+    public GameObject coopHolder;
+
     //Scripts that this instance will get information from
     #region Scripts
     FaceDirection face;
@@ -63,6 +70,8 @@ public class GeneralSharkBehavior : AbstractBehavior
     #region Other Components
     [HideInInspector]
     public SpriteRenderer weaponHolder;
+    [HideInInspector]
+    public Player control;
     #endregion
 
     #region Floats
@@ -70,20 +79,20 @@ public class GeneralSharkBehavior : AbstractBehavior
     float origNorm, origDash, origSlowPercent, origAgainTime, origLinearDrag , originalGrav;
 
     //Timers
-    float timer, oilTimer, miniOilTimer, stunTimer, healthTimer, ammoTimer, freezeTimer, poisonTimer;
+    float timer, oilTimer, miniOilTimer, stunTimer, healthTimer, ammoTimer, freezeTimer, poisonTimer, perfectTimer;
     float frozenSoundTimer = 1f;
 
     //Floats for variables from other scripts
-    float lookAngle, againTime;
+    float lookAngle, againTime, wheelAxisValue;
 
     //Modifers, make sure they are set because errors won't happen.
     float fireAdjustTime = 1, moveAdjustSpeed = 1, dashForceAdjust = 1, linearDragAdjust = 1,
-        angularDragAdjust = 1;
+        angularDragAdjust = 1, shadowShowAdjust = 1;
     #endregion
 
     #region Bools
     [HideInInspector]
-    public bool weaponWheel, hookRight, hookLeft, hookUp, hookDown;
+    public bool weaponWheel, quickPressWeaponWheel, hookRight, hookLeft, hookUp, hookDown, perfectDodge;
     bool oiled, slowed, stunned, frozen, miniOiled, damaging;
     bool dashTut, isDashing;
 
@@ -146,6 +155,23 @@ public class GeneralSharkBehavior : AbstractBehavior
     {
         return movement.GetIsMoving();
     }
+    public bool GetShortPressWeaponWheel()
+    {
+        return quickPressWeaponWheel;
+    }
+    public bool GetWeaponIndexIncrease
+    {
+        get { return control.GetButton("Weapon Index Increase"); ; }
+    }
+    public bool GetWeaponIndexDecrease
+    {
+        get { return control.GetButton("Weapon Index Decrease"); ; }
+    }
+    public bool GetPerfectDodge
+    {
+        get { return perfectDodge; }
+        set { perfectDodge = value; }
+    }
     #endregion
 
     #region Set Bools
@@ -180,6 +206,10 @@ public class GeneralSharkBehavior : AbstractBehavior
     {
         return dashForceAdjust;
     }
+    public float GetShadowShotAdjust()
+    {
+        return shadowShowAdjust;
+    }
     public float GetSpeed()
     {
         return speed;
@@ -188,7 +218,6 @@ public class GeneralSharkBehavior : AbstractBehavior
     {
         return normSpeed;
     }
-
     public float GetFireTimer()
     {
         return shooting.GetFireTimer;
@@ -197,7 +226,6 @@ public class GeneralSharkBehavior : AbstractBehavior
     {
         return shooting.GetChargeTimer;
     }
-
     public float GetOrigNormSpeed()
     {
         return origNorm;
@@ -278,7 +306,6 @@ public class GeneralSharkBehavior : AbstractBehavior
     {
         return SceneManager.GetActiveScene();
     }
-
     public Animator GetAnim()
     {
         return anim;
@@ -289,6 +316,18 @@ public class GeneralSharkBehavior : AbstractBehavior
     protected override void Awake()
     {
         base.Awake();
+
+        control = ReInput.players.GetPlayer(playerID);
+        control.isPlaying = true;
+        if (playerID != 0)
+        {
+            ReInput.controllers.AutoAssignJoysticks();
+            foreach (var joystick in control.controllers.Joysticks)
+            {
+                Debug.Log("Player ID " + playerID + " has " + joystick.name);
+            }
+            
+        }
 
         weaponHolder = weaponHolderSprite;
 
@@ -362,11 +401,35 @@ public class GeneralSharkBehavior : AbstractBehavior
         }
         #endregion
 
-        weaponWheel = control.GetButton("Weapon Wheel");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log(rb2d.velocity.magnitude);
+        }
+
+        #region Stat Upgrades
+
+        shadowShowAdjust = Wehking_PlayerSavedStats.instance.permStats[(int) Wehking_PlayerSavedStats.PermanentStats.ShadowShotAdjust] - 1;
+        
+
+        #endregion
+
+        if (control != null)
+        {
+            weaponWheel = control.GetButtonLongPress("Weapon Wheel");
+            quickPressWeaponWheel = control.GetButtonShortPressUp("Weapon Wheel");
+        }
+
+        if(JP_GameManager.instance.inMultiplayer)
+        {
+            JP_GameManager.instance.laser.mpWeapons[playerID - 1].fireTimer = GetFireTimer();
+        }
+
+        if (coopHolder != null)
+        {
+            coopHolder.SetActive(Wehking_PlayerSavedStats.instance.coopActive); 
+        }
 
         isDeadSharky = JP_GameManager.instance.respawnScript.getIsDead();
-
-        rb2d.gravityScale = JP_InGameMenu.instance.loadingTime ? 0 : originalGrav;
 
         /*
         Speed is not being set to normSpeed in Update anymore
@@ -377,6 +440,16 @@ public class GeneralSharkBehavior : AbstractBehavior
         movement.speed = tempSpeed;
 
         isDashing = dash.getIsDashing();
+
+        if (perfectDodge)
+        {
+            perfectTimer += Time.deltaTime;
+            if (perfectTimer >= perfectTime)
+            {
+                perfectTimer = 0;
+                perfectDodge = false;
+            }
+        }
 
         #region Particle System Timers
         if (addHealth.activeSelf)
@@ -495,7 +568,7 @@ public class GeneralSharkBehavior : AbstractBehavior
             addAmmoAll.SetActive(true);
         }
 
-        if (collision.gameObject.CompareTag("DamagingSeaweed"))
+        if (collision.gameObject.CompareTag("DamagingSeaweed") && !GetIsDashing())
         {
 
             poisoned.SetActive(true);

@@ -6,80 +6,79 @@ public class Phase2ProjectileWall : MonoBehaviour
 {
 
     public GameObject spawnedProj;
-    public int numberOfProj, numberOfHoles, additvePosition;
-    public float spacingY, wallSpawnTime;
+    public int numberOfProj, numberOfHoles, additvePosition, additivePosition2;
+    public float spacingY;
 
     public int overridePos1, overridePos2, numberOfWalls;
 
-    public bool noHoleInWall;
+    public bool wall, split;
 
-    int positionIndex, lastOverride1, wallBlockerIndex;
-
-    float wallSpawnTimer;
-
-    // Use this for initialization
-
-    void Start()
+    public int positionIndex, wallBlockerIndex;
+    int GetTopLimit()
     {
-        positionIndex = overridePos1;
-        lastOverride1 = overridePos1;
+        return numberOfProj / 2;
     }
 
-    void Update()
+    // Use this for initialization
+    void Start()
     {
-        if (lastOverride1 != overridePos1)
+        TickTimeTimer.OnTick += OnTick;
+    }
+
+    void OnTick(object sender, TickTimeTimer.OnTickEventArgs args)
+    {
+        overridePos1 += additvePosition;
+        overridePos2 += additivePosition2;
+        if (!wall)
         {
-            positionIndex = overridePos1;
-            lastOverride1 = overridePos1;
-        }
-
-        wallSpawnTimer += Time.deltaTime;
-        if (wallSpawnTimer >= wallSpawnTime)
-        {
-            overridePos1 += additvePosition;
-            if (!noHoleInWall)
+            for (int i = -numberOfProj / 2; i < numberOfProj / 2 + 1; i++)
             {
-                for (int i = -numberOfProj / 2; i < numberOfProj / 2 + 1; i++)
+                if (!split)
                 {
-
-                    if (i != positionIndex)
-                    {
-                        Vector3 newPos = new Vector3(transform.position.x,
-                            transform.position.y + spacingY * i);
-                        var proj = Instantiate(spawnedProj, newPos, transform.rotation);
-                        proj.transform.parent = transform;
-                        wallSpawnTimer = 0;
-                    }
-
-                    if (i == positionIndex && positionIndex < overridePos1 + numberOfHoles - 1)
-                    {
-                        positionIndex++;
-                        if (positionIndex >= overridePos1 + numberOfHoles - 1)
-                        {
-                            positionIndex = overridePos1;
-                        }
-                    }
+                    CreateProjectilesPath1_NoWall(i);
                 }
-            }
-
-            if (noHoleInWall)
-            {
-                for (int i = -numberOfProj / 2; i < numberOfProj / 2 + 1; i++)
-                {
-                    Vector3 newPos = new Vector3(transform.position.x,
-                        transform.position.y + spacingY * i);
-                    var proj = Instantiate(spawnedProj, newPos, transform.rotation);
-                    proj.transform.parent = transform;
-                    wallSpawnTimer = 0;
-                    
-                }
-                wallBlockerIndex++;
-                if (wallBlockerIndex >= numberOfWalls)
-                {
-                    noHoleInWall = false;
-                    wallBlockerIndex = 0;
-                }
+                else CreateProjectilesPath2_NoWall(i);
             }
         }
+
+        if (wall)
+        {
+            for (int i = -numberOfProj / 2; i < numberOfProj / 2 + 1; i++)
+            {
+                Vector3 newPos = new Vector3(transform.position.x,
+                    transform.position.y + spacingY * i);
+                var proj = Instantiate(spawnedProj, newPos, transform.rotation);
+                proj.transform.parent = transform;
+
+            }
+            wall = false;
+        }
+    }
+
+    void CreateProjectilesPath1_NoWall(int i)
+    {
+        if (i > overridePos1 + numberOfHoles - 2 || i < overridePos1)
+        {
+            Vector3 newPos = new Vector3(transform.position.x,
+                transform.position.y + spacingY * i);
+            var proj = Instantiate(spawnedProj, newPos, transform.rotation);
+            proj.transform.parent = transform;
+        }
+    }
+
+    void CreateProjectilesPath2_NoWall(int i)
+    {
+        if ((i > overridePos1 + numberOfHoles - 2 || i < overridePos1) && (i > overridePos2 + numberOfHoles - 2 || i < overridePos2))
+        {
+            Vector3 newPos = new Vector3(transform.position.x,
+                transform.position.y + spacingY * i);
+            var proj = Instantiate(spawnedProj, newPos, transform.rotation);
+            proj.transform.parent = transform;
+        }
+    }
+
+    void OnDisable()
+    {
+        TickTimeTimer.OnTick -= OnTick;
     }
 }

@@ -66,6 +66,13 @@ namespace TinyURL.Web.Controllers
             return View("Index");
         }
 
+        /// <summary>
+        /// 
+        /// ~Functionality~
+        /// This contains the validation for the file being uploaded.
+        /// 
+        /// </summary>
+        /// <param name="file"></param>
         void ValidateFile(HttpPostedFileBase file)
         {
             
@@ -107,6 +114,17 @@ namespace TinyURL.Web.Controllers
             ViewBag.ValidationStatus = validationStatus;
         }
 
+
+        /// <summary>
+        /// 
+        /// Currently this isn't working as hoped. I have a feeling it is due to finding the path to the image in the folder structure.
+        ///
+        /// ~Functionality~
+        /// This accesses the tinyurl web api to create a tinyurl link to the image.
+        /// 
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
         string CreateTinyUrl(string url)
         {
             try

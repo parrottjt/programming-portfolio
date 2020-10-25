@@ -7,6 +7,7 @@ namespace TinyURL.Web.Models
 {
     public class ImageViewModel
     {
+        //Labeling the content to be a upload, to ensure uploading
         [DataType(DataType.Upload)]
         [Display(Name = "Image File")]
         [Required(ErrorMessage = "Please Choose A File To Upload.")]

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30413.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyURL.Data", "TinyURL.Data\TinyURL.Data.csproj", "{E4678A38-54BA-4F31-B147-D28C602FEA48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TinyURL.Web", "TinyURL.Web\TinyURL.Web.csproj", "{38F982B6-3BD0-4EB8-964D-3F0E600133FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4678A38-54BA-4F31-B147-D28C602FEA48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4678A38-54BA-4F31-B147-D28C602FEA48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4678A38-54BA-4F31-B147-D28C602FEA48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4678A38-54BA-4F31-B147-D28C602FEA48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F982B6-3BD0-4EB8-964D-3F0E600133FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F982B6-3BD0-4EB8-964D-3F0E600133FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F982B6-3BD0-4EB8-964D-3F0E600133FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F982B6-3BD0-4EB8-964D-3F0E600133FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DB953423-7104-495F-84FB-82A0F713A57B}
+	EndGlobalSection
+EndGlobal

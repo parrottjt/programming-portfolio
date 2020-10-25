@@ -1,0 +1,12 @@
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\TinyURL.Data.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\TinyURL.Data.pdb
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\obj\Debug\TinyURL.Data.csprojAssemblyReference.cache
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\obj\Debug\TinyURL.Data.csproj.CoreCompileInputs.cache
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\obj\Debug\TinyURL.Data.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\obj\Debug\TinyURL.Data.pdb
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\TinyURL.Data.dll.config
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\EntityFramework.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\EntityFramework.xml
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\SMG Mobile Test\TinyURLTest\TinyURL.Data\obj\Debug\TinyURL.Data.csproj.CopyComplete

@@ -105,6 +105,8 @@ public class WeaponList : MonoBehaviour
         public float GetChargeTimer() => chargeTimer;
     }
     
+    // Easier viewing on inherited scripts for context
+    // In structure as seperate scripts
     #region Story IWEAPON Classes
 
     class NormalLaser : BaseWeapon, IWeapon

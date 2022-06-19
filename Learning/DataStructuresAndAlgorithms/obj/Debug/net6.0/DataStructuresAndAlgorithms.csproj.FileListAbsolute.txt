@@ -1,0 +1,12 @@
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\bin\Debug\net6.0\DataStructuresAndAlgorithms.deps.json
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\bin\Debug\net6.0\DataStructuresAndAlgorithms.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\bin\Debug\net6.0\DataStructuresAndAlgorithms.pdb
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.csproj.AssemblyReference.cache
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.AssemblyInfoInputs.cache
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.AssemblyInfo.cs
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.csproj.CoreCompileInputs.cache
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\refint\DataStructuresAndAlgorithms.dll
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\DataStructuresAndAlgorithms.pdb
+C:\Users\jonpa\Documents\GitHub\programming-portfolio\Learning\DataStructuresAndAlgorithms\obj\Debug\net6.0\ref\DataStructuresAndAlgorithms.dll

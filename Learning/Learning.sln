@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructuresAndAlgorithms", "DataStructuresAndAlgorithms\DataStructuresAndAlgorithms.csproj", "{CE311E51-7402-4AEF-B14D-D1C5E7309DC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learning.App", "Learning.App\Learning.App.csproj", "{F6A0C5A0-E49E-433E-88BB-94F8DE76C999}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{CE311E51-7402-4AEF-B14D-D1C5E7309DC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE311E51-7402-4AEF-B14D-D1C5E7309DC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE311E51-7402-4AEF-B14D-D1C5E7309DC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6A0C5A0-E49E-433E-88BB-94F8DE76C999}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6A0C5A0-E49E-433E-88BB-94F8DE76C999}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6A0C5A0-E49E-433E-88BB-94F8DE76C999}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6A0C5A0-E49E-433E-88BB-94F8DE76C999}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

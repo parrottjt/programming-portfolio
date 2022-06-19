@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Learning.App/1.0.0": {
+        "dependencies": {
+          "DataStructuresAndAlgorithms": "1.0.0"
+        },
+        "runtime": {
+          "Learning.App.dll": {}
+        }
+      },
+      "DataStructuresAndAlgorithms/1.0.0": {
+        "runtime": {
+          "DataStructuresAndAlgorithms.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Learning.App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataStructuresAndAlgorithms/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

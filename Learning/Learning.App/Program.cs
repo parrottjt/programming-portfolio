@@ -1,23 +1,24 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using DataStructuresAndAlgorithms;
+using DataStructuresAndAlgorithms.DataStructures;
 using DataStructuresAndAlgorithms.Interfaces;
+using DataStructuresAndAlgorithms.Sorting;
 
 public class Program
 {
     public static void Main(string[] args)
     {
-        var list = new []{1,2,3,4,5,6,7,8,9,10};
-        var target = 10;
+        var list = new List<int>
+        {
+            6, 8, 3, 5, 12, 51, 745, 14, 0
+        };
 
-        var search = new BinarySearch();
-        
-        var index = search.Search(list, target);
-        var recursiveIndex = search.RecursiveSearch(list, target, 0, list.Length - 1);
-        
-        Console.WriteLine(search.Verify(index));
-        Console.WriteLine(search.Verify(recursiveIndex));
+        var sort = new QuickSort();
+
+        foreach (var i in sort.Sort(list))
+        {
+            Console.WriteLine(i);
+        }
     }
-
-    
 }

@@ -7,7 +7,6 @@ public class BinarySearch : ISearch
     public int Search<T>(IEnumerable<T> list, T target)
     {
         var arr = list.ToList();
-        arr.Sort();
         var first = 0;
         var last = arr.Count - 1;
 
@@ -34,7 +33,6 @@ public class BinarySearch : ISearch
     public int RecursiveSearch<T>(IEnumerable<T> list, T target, int first, int last)
     {
         var arr = list.ToList();
-        arr.Sort();
         if (first > last)
         {
             return -1;

@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\Learning\\DataStructuresAndAlgorithms\\DataStructuresAndAlgorithms.csproj",
+      "projectUniqueName": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\DataStructuresAndAlgorithms\\DataStructuresAndAlgorithms.csproj",
       "projectName": "DataStructuresAndAlgorithms",
-      "projectPath": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\Learning\\DataStructuresAndAlgorithms\\DataStructuresAndAlgorithms.csproj",
+      "projectPath": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\DataStructuresAndAlgorithms\\DataStructuresAndAlgorithms.csproj",
       "packagesPath": "C:\\Users\\jonpa\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\Learning\\DataStructuresAndAlgorithms\\obj\\",
+      "outputPath": "C:\\Users\\jonpa\\Documents\\GitHub\\programming-portfolio\\Learning\\DataStructuresAndAlgorithms\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jonpa\\AppData\\Roaming\\NuGet\\NuGet.Config",
